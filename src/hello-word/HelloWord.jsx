@@ -1,20 +1,23 @@
 export default function HelloWord(){
+    //spread syntax
+    const props = {
+        text : "Hello Word React JS"
+    }
     return (
         <>
-            <HeadingHelloWord/>
+            <HeadingHelloWord {... props}/>
             <ParagrafHelloWord/>
         </>
     )
 }
 
-function HeadingHelloWord() {
-    const data = "Hello Word";
+function HeadingHelloWord(props) {
     return (
         <>
             <h1 style={{
                 color : "orange",
                 backgroundColor : "black"
-            }}>{data}</h1>
+            }}>{props.text.toUpperCase()}</h1>
         </>
     )
 }
