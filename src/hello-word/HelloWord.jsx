@@ -1,3 +1,5 @@
+import "./Style.css";
+
 export default function HelloWord(){
     //spread syntax
     const props = {
@@ -25,7 +27,7 @@ function HeadingHelloWord(props) {
 function ParagrafHelloWord() {
     return (
         <>
-            <p>Belajar React JS Native</p>
+            <p className="title">Belajar React JS Native</p>
         </>
     )
 }
