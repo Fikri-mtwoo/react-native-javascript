@@ -8,6 +8,7 @@ import Alert from "../button/Alert";
 import MyButton from "../button/MyBuutton";
 import Toolbar from "../button/Toolbar";
 import FormSearch from "../form/FormSearch";
+import Counter from "../form/Counter";
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
@@ -21,6 +22,7 @@ createRoot(document.getElementById('root')).render(
                 e.stopPropagation()
                 alert('klik me')
             }} />
+            <Counter/>
             <FormSearch/>
         </Container>
     </StrictMode>
