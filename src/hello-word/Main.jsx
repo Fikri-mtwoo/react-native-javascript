@@ -6,6 +6,8 @@ import TodoList from "../todo/TodoList";
 import Tabel from "../tabel/Tabel";
 import Alert from "../button/Alert";
 import MyButton from "../button/MyBuutton";
+import Toolbar from "../button/Toolbar";
+import FormSearch from "../form/FormSearch";
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
@@ -15,6 +17,11 @@ createRoot(document.getElementById('root')).render(
             <Tabel/>
             <Alert text="Touch Me" pesan="You Touch Me"/>
             <MyButton text="Smash Me" onSamsh={() => alert('You Smash Me')} />
+            <Toolbar onClick={(e) => {
+                e.stopPropagation()
+                alert('klik me')
+            }} />
+            <FormSearch/>
         </Container>
     </StrictMode>
 )
