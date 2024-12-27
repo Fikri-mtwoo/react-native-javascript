@@ -8,7 +8,8 @@ export default defineConfig({
     rollupOptions : {
       input : {
         index : "index.html",
-        hello_word : "hello-word.html"
+        hello_word : "hello-word.html",
+        contact: "contact.html"
       }
     }
   }
