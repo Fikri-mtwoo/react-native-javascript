@@ -13,7 +13,19 @@ export default function CounterApp() {
             {status && <Counter/>} */}
 
             {/* componen sama diposisi sama */}
-            {status ? <Counter name={"Javascript"}/> : <Counter name={"React"}/>}
+            {/* {status ? <Counter name={"Javascript"}/> : <Counter name={"React"}/>} */}
+
+            {/* mengubah posisi component */}
+            {/* {
+                status ? (<div><Counter name={"Javascript"}/></div>) : (<section><Counter name={"React"}/></section>)
+            } */}
+
+            {/* posisi component berbeda */}
+            {/* {!status && <Counter name={"Javascript"}/>}
+            {status && <Counter name={"React"}/>} */}
+
+            {/* menggunakan key */}
+            {status ? <Counter name={"Javascript"} key={"1"}/> : <Counter name={"React"} key={"2"}/>}
             <input type="checkbox" value={status} onChange={handleChange}/>Tampilkan Counter 2
         </>
     )

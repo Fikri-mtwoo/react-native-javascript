@@ -15,3 +15,8 @@ createRoot(document.getElementById('root')).render(
 
 //componen sama diposisi sama
 //jika terdapat kasus menampilkan componen yang sama tapi secara struktur UI dia berada diposisi yang sama maka state akan dipertahankan oleh react, yang artinya tidak akan dihapus. kecuali posisinya berubah atau component nya berubah, maka react akan menghapus state nya.
+
+//untuk mereset state
+//1. mengubah posisi component
+//2. posisi component berbeda
+//3. menggunakan key (rekomendasi)
