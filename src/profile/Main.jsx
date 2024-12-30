@@ -12,3 +12,6 @@ createRoot(document.getElementById('root')).render(
 // cara menggunakan hook context pertama kita harus membuat context dengan menggunakan function createContext()
 // untuk menggunakan atau mendapatkan data context menggunakan function useContext()
 // untuk mengubah data dalam context menggunakan provider
+
+//context dan state
+//contect juga bisa menerima data berupa state
