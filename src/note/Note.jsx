@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { DispatchContext } from "./NoteContext";
 
-export default function Note({note, onChange, onDelet}) {
+function Note({note, onChange, onDelet}) {
 
     function handleOnChange(e) {
         const newNote = {...note, text: e.target.value}
@@ -59,3 +60,80 @@ export default function Note({note, onChange, onDelet}) {
         </label>
     )
 }
+
+function NoteContext({note}) {
+    const dispatch = useContext(DispatchContext);
+    function handleOnChange(e) {
+        dispatch({
+            ...note,
+            type: "CHANGE_NOTE",
+            text: e.target.value
+        })
+    }
+
+    function handleClickSave(){
+        dispatch({
+            ...note,
+            type: "CHANGE_NOTE",
+            status: false
+        })
+    }
+
+    function handleClickEdit(){
+        dispatch({
+            ...note,
+            type: "CHANGE_NOTE",
+            status: true
+        })
+    }
+
+    let componen = "";
+    if(note.status){
+        componen = (
+            <>
+                <input type="text" value={note.text} onChange={handleOnChange}/>
+                <button onClick={handleClickSave}>save</button>
+            </>
+        )
+    }else{
+        if(note.done){
+            componen = (
+                <>
+                    <del>{note.text}</del>
+                </>
+            )
+        }else{
+            componen = (
+                <>
+                    {note.text}
+                    <button onClick={handleClickEdit}>edit</button>
+                </>
+            )
+        }
+    }
+
+    function handleOnChangeDone(e) {
+        dispatch({
+            ...note,
+            type: "CHANGE_NOTE",
+            done: e.target.checked
+        })
+    }
+
+    function handleDelete(){
+        dispatch({
+            type: "DELET_NOTE",
+            id: note.id
+        })
+    }
+
+    return (
+        <label>
+            {!note.status && <input type="checkbox" checked={note.done} onChange={handleOnChangeDone}/>}
+            {componen}
+            <button onClick={handleDelete}>delet</button>
+        </label>
+    )
+}
+
+export default NoteContext

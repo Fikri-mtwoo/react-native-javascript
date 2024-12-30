@@ -2,6 +2,9 @@ import { useImmer, useImmerReducer } from "use-immer";
 import NodeForm from "./NodeForm";
 import NodeList from "./NodeList";
 import { useReducer } from "react";
+import { DispatchContext, NoteContext } from "./NoteContext";
+import NodeListContext from "./NodeList";
+import NodeFormContext from "./NodeForm";
 
 let id=0;
 const data = [
@@ -138,8 +141,8 @@ export default function NodeApp() {
 
     return (
         <>
-            <h1>Note App</h1>
-            <NodeForm onAdd={handleAddNoteReducerImmer}/>
+            {/* <h1>Note App</h1> */}
+            {/* <NodeForm onAdd={handleAddNoteReducerImmer}/> */}
             {/* tanpa menggunakan reduce */}
             {/* <NodeList notes={notes} onChange={handleChangeNoteReducer} onDelet={handleDeleteNoteReducer}/> */}
 
@@ -147,7 +150,16 @@ export default function NodeApp() {
             {/* <NodeList notes={notesReducer} onChange={handleChangeNoteReducer} onDelet={handleDeleteNoteReducer}/> */}
 
             {/* menggunakan reduce + immer*/}
-            <NodeList notes={noteReducerImmer} onChange={handleChangeNoteReducerImmer} onDelet={handleDeleteNoteReducerImmer}/>
+            {/* <NodeList notes={noteReducerImmer} onChange={handleChangeNoteReducerImmer} onDelet={handleDeleteNoteReducerImmer}/> */}
+
+            {/* pengaplikasian reduce di context */}
+            <NoteContext.Provider value={noteReducerImmer}>
+                <DispatchContext.Provider value={dispatchReduceImmer}>
+                    <h1>Note App</h1>
+                    <NodeFormContext/>
+                    <NodeListContext/>
+                </DispatchContext.Provider>
+            </NoteContext.Provider>
         </>
     )
 }

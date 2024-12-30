@@ -1,6 +1,8 @@
+import { useContext } from "react"
 import Note from "./Note"
+import { NoteContext } from "./NoteContext"
 
-export default function NodeList({notes, onChange, onDelet}) {
+function NodeList({notes, onChange, onDelet}) {
     return (
         <>
             <h1>Notes List</h1>
@@ -14,3 +16,21 @@ export default function NodeList({notes, onChange, onDelet}) {
         </>
     )
 }
+
+function NodeListContext() {
+    const notes = useContext(NoteContext)
+    return (
+        <>
+            <h4>Node List</h4>
+            <ul>
+                {
+                    notes.map((note) => 
+                        <li key={note.id}><Note note={note} /></li>
+                    )
+                }
+            </ul>
+        </>
+    )
+}
+
+export default NodeListContext
