@@ -9,6 +9,7 @@ import MyButton from "../button/MyBuutton";
 import Toolbar from "../button/Toolbar";
 import FormSearch from "../form/FormSearch";
 import Counter from "../form/Counter";
+import AlertRef from "../button/AlertRef";
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
@@ -24,6 +25,7 @@ createRoot(document.getElementById('root')).render(
             }} />
             <Counter/>
             <FormSearch/>
+            <AlertRef text="Hit me" pesan="You success hit me"/>
         </Container>
     </StrictMode>
 )
