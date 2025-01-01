@@ -19,3 +19,7 @@ createRoot(document.getElementById('root')).render(
 // dependencies juga bisa diisi array kosong, yang mana effect akan dijalankan sekali setelah proses render selesai
 // async code di effect
 // effect tidak mundukung async function. untuk menangani penggunaa async function di effect dengan cara membuat function terpsah.
+
+// jangan gunakan effect ketika
+// 1. jangan gunakan effect untuk inisialisasi aplikasi
+// 2. jangan gunakan effect untuk mengubah data di server
