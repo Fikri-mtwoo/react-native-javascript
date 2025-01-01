@@ -7,3 +7,5 @@ createRoot(document.getElementById('root')).render(
         <NodeApp/>
     </StrictMode>
 )
+
+//memo atau memoization merupakan teknik optimasi untuk mempercepat program komputer, dengan cara menyimpan data secara sementara dari hasil kalkulasi, sehingga tidak perlu dikalkulasi ulang. memo merupakan hook performance. untuk menggunakan memo hook dengan menggunakan function useMemo(callback, [dependencies])
