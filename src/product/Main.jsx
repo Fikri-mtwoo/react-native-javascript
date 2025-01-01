@@ -17,3 +17,5 @@ createRoot(document.getElementById('root')).render(
 // effect dependencies merupakan paramater ke dua pada function useEffect()
 // dependencies bisa diisi dengan array dari state. jadi ketika state tersebut berubah makan effect akan dijalankan tapi jika state tidak berubaha makan effect tidak akan dijalankan sehingga bida menjadi alternatif untuk pengecekan pada effect.
 // dependencies juga bisa diisi array kosong, yang mana effect akan dijalankan sekali setelah proses render selesai
+// async code di effect
+// effect tidak mundukung async function. untuk menangani penggunaa async function di effect dengan cara membuat function terpsah.

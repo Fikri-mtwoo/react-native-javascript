@@ -15,11 +15,22 @@ export default function ProductList() {
     }, [])
 
     useEffect(() => {
-        if (load){
-            fetch("/product.json")
-            .then((response) => response.json())
-            .then((data) => setProducts(data))
+        async function loadProduct(){
+            const response = await fetch("/product.json")
+            const data = await response.json()
+            setProducts(data)
         }
+        
+        // menggunakan async code
+        if(load){
+            loadProduct()
+        }
+        
+        // if (load){
+        //     fetch("/product.json")
+        //     .then((response) => response.json())
+        //     .then((data) => setProducts(data))
+        // }
 
         //effect clean up
         return () => {
