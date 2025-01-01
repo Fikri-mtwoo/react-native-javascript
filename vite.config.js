@@ -14,7 +14,8 @@ export default defineConfig({
         counter: "counter.html",
         note: "note.html",
         guesBook : "guesbook.html",
-        product : "product.html"
+        product : "product.html",
+        online : "online.html"
       }
     }
   }
