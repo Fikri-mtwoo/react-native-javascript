@@ -3,25 +3,34 @@ import Product from "./Product"
 
 export default function ProductList() {
     const [products, setProducts] = useState([])
-    const loadStatus = useRef(false)
+    const [load, setLoad] = useState(false)
+
+    function handleLoad(){
+        console.log('click button')
+        setLoad(true)
+    }
 
     useEffect(() => {
-        if (loadStatus.current === false){
+        console.info('useEffect dengan array kosong []')
+    }, [])
+
+    useEffect(() => {
+        if (load){
             fetch("/product.json")
             .then((response) => response.json())
             .then((data) => setProducts(data))
-            .then(() => loadStatus.current = true);
         }
 
         //effect clean up
         return () => {
             console.log("Product componen unmounted")
         }
-    })
+    }, [load])
 
     return (
         <>
             <h1>Product List</h1>
+            <button onClick={handleLoad}>load data</button>
             {products.map((product) => 
                 <Product key={product.id} product={product}/>
             )}            
